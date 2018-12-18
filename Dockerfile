@@ -1,6 +1,6 @@
 # Dockerfile
 
-FROM  ubuntl:latest
+FROM  ubuntu:latest
 
 MAINTAINER  Author Name <author@email.com>
 
