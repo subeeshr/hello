@@ -2,6 +2,8 @@
 
 set -ex
 
+export PATH="$PATH:/usr/local/bin"
+
 PARENT_DIR=$(basename "${PWD%/*}")
 CURRENT_DIR="${PWD##*/}"
 IMAGE_NAME="$PARENT_DIR"_"$CURRENT_DIR"
