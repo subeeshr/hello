@@ -3,6 +3,7 @@
 set -ex
 
 export PATH="$PATH:/usr/local/bin"
+export AWS_PROFILE=admin
 
 PARENT_DIR=$(basename "${PWD%/*}")
 CURRENT_DIR="${PWD##*/}"
