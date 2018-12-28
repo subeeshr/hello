@@ -12,6 +12,6 @@ IMAGE_NAME="$PARENT_DIR"_"$CURRENT_DIR"
 CMD=`aws ecr get-login --no-include-email --region eu-west-1`
 REGISTRY="789391878624.dkr.ecr.eu-west-1.amazonaws.com"
 $CMD
-docker build -t ${REGISTRY}/${IMAGE_NAME} .
-docker tag ${REGISTRY}/${IMAGE_NAME} ${REGISTRY}/${IMAGE_NAME}:latest
+docker build -t ${REGISTRY}/${IMAGE_NAME}:to_tag .
+docker tag ${REGISTRY}/${IMAGE_NAME}:to_tag ${REGISTRY}/${IMAGE_NAME}:latest
 docker push ${REGISTRY}/${IMAGE_NAME}
