@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
         withEnv(["PATH=/usr/local/bin:${env.PATH}", "AWS_PROFILE=admin"]) {
+        steps {
                 sh 'set -ex'
                 sh 'cd ~/hello'
                 sh 'IMAGE_NAME=new_repo'
@@ -16,7 +17,8 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-                }
+            }
+        }
         }
     }
 }
