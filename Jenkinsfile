@@ -2,10 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
+        withEnv(["PATH=/usr/local/bin:${env.PATH}", "AWS_PROFILE=admin"]) {
                 sh 'set -ex'
-                sh 'export PATH="$PATH:/usr/local/bin"'
-                sh 'export AWS_PROFILE=admin'
                 sh 'cd ~/hello'
                 sh 'IMAGE_NAME=new_repo'
                 sh 'REGISTRY="789391878624.dkr.ecr.eu-west-1.amazonaws.com"'
@@ -18,7 +16,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-            }
+                }
         }
     }
 }
