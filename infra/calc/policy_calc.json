@@ -1,0 +1,47 @@
+{
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": "ssm:DescribeParameters",
+      "Resource": [
+        "arn:aws:ssm:*:*:*"
+      ]
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": [
+        "arn:aws:ssm:*:*:parameter/${env}_${service_name}.*"
+      ]
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": [
+        "kms:ListKeys",
+        "kms:ListAliases",
+        "kms:Describe*",
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "${kms_chamber}"
+      ]
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": [
+        "kms:GenerateDataKey",
+        "kms:ListKeys",
+        "kms:ListAliases",
+        "kms:Describe*",
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "${kms_fles}"
+      ]
+    }
+  ]
+}
